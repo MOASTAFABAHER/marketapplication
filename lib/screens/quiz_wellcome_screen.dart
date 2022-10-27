@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter/src/widgets/container.dart';
 import 'package:flutter/src/widgets/framework.dart';
 import 'package:marketapplication/components/Custom_Container_button.dart';
+import 'package:marketapplication/screens/home_screen_quizz.dart';
 
 import '../components/custom_text.dart';
 
@@ -52,13 +53,19 @@ class QuizWellcomeScreen extends StatelessWidget {
                 height: 20,
               ),
               CustomContainerButton(
+                onTap: () {
+                  Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                          builder: ((context) => HomeScreenQuizz())));
+                },
                 text: 'Play now',
                 width: double.infinity,
                 color: Colors.purpleAccent,
                 hight: 45,
                 colorText: Colors.white,
               ),
-              SizedBox(
+              const SizedBox(
                 height: 20,
               ),
               CustomContainerButton(

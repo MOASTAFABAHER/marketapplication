@@ -3,9 +3,9 @@ import 'package:flutter/src/widgets/container.dart';
 import 'package:flutter/src/widgets/framework.dart';
 import 'package:marketapplication/components/custom_text.dart';
 
-class SubmitScreen extends StatelessWidget {
+class CartScreen extends StatelessWidget {
   double totalPrice;
-  SubmitScreen({required this.totalPrice});
+  CartScreen({required this.totalPrice});
 
   @override
   Widget build(BuildContext context) {
