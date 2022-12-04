@@ -6,9 +6,9 @@ import 'package:marketapplication/components/custom_text.dart';
 import 'package:marketapplication/screens/home_screen.dart';
 import 'package:marketapplication/utils/app_navigator.dart';
 
-class SubmitScreen extends StatelessWidget {
+class CartScreen extends StatelessWidget {
   double totalPrice;
-  SubmitScreen({required this.totalPrice});
+  CartScreen({required this.totalPrice});
 
   @override
   Widget build(BuildContext context) {
