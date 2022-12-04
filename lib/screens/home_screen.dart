@@ -8,8 +8,8 @@ import 'package:marketapplication/components/custom_icon_button.dart';
 import 'package:marketapplication/components/custom_textform.dart';
 import 'package:marketapplication/components/submit_button.dart';
 import 'package:marketapplication/screens/bakery_screen.dart';
+import 'package:marketapplication/screens/cart_screen.dart';
 import 'package:marketapplication/screens/fruits_screen.dart';
-import 'package:marketapplication/screens/submit_screen.dart';
 import 'package:marketapplication/screens/vegitables_screen.dart';
 import 'package:marketapplication/utils/app_navigator.dart';
 
@@ -222,7 +222,7 @@ class _HomeScreenState extends State<HomeScreen> {
             ),
             SubmitButton(function: () {
               AppNavigator.appNavigator(
-                  context, SubmitScreen(totalPrice: widget.totalPrice));
+                  context, CartScreen(totalPrice: widget.totalPrice));
             })
           ],
         ),

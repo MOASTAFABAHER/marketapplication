@@ -7,8 +7,6 @@ import 'package:marketapplication/components/custom_text.dart';
 import 'package:marketapplication/components/submit_button.dart';
 import 'package:marketapplication/screens/fruits_screen.dart';
 import 'package:marketapplication/screens/home_screen.dart';
-
-import 'package:marketapplication/screens/submit_screen.dart';
 import 'package:marketapplication/utils/app_navigator.dart';
 import 'package:marketapplication/screens/cart_screen.dart';
 
@@ -137,26 +135,8 @@ class _VegetablesScreen extends State<VegetablesScreen> {
             ),
             SubmitButton(function: () {
               AppNavigator.appNavigator(
-                  context, SubmitScreen(totalPrice: widget.totalPrice));
+                  context, CartScreen(totalPrice: widget.totalPrice));
             }),
-
-            Container(
-                color: Colors.white,
-                child: TextButton(
-                    onPressed: () {
-                      Navigator.push(
-                          context,
-                          MaterialPageRoute(
-                              builder: (context) =>
-                                  CartScreen(totalPrice: widget.totalPrice)));
-                    },
-                    child: Customtext(
-                      text: 'Submit',
-                      color: Colors.black,
-                      fontSize: 18,
-                      fontWeight: FontWeight.bold,
-                    ))),
-
           ],
         ),
       ),

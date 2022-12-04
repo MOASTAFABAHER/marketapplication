@@ -99,6 +99,8 @@ class CartScreen extends StatelessWidget {
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: [
                     CustomContainerButton(
+                      hight: 40,
+                      width: 80,
                       function: () {
                         AppNavigator.appNavigator(
                             context, HomeScreen(totalPrice: totalPrice));
@@ -112,6 +114,8 @@ class CartScreen extends StatelessWidget {
                       width: 20,
                     ),
                     CustomContainerButton(
+                      hight: 40,
+                      width: 80,
                       function: () {},
                       color: Colors.green,
                       text: "checkout ",

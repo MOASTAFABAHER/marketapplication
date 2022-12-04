@@ -5,14 +5,10 @@ import 'package:marketapplication/classes/icons_data.dart';
 import 'package:marketapplication/classes/market_data.dart';
 import 'package:marketapplication/components/custom_text.dart';
 import 'package:marketapplication/components/submit_button.dart';
+import 'package:marketapplication/screens/cart_screen.dart';
 import 'package:marketapplication/screens/fruits_screen.dart';
 import 'package:marketapplication/screens/home_screen.dart';
-
-import 'package:marketapplication/screens/submit_screen.dart';
 import 'package:marketapplication/utils/app_navigator.dart';
-
-import 'package:marketapplication/screens/cart_screen.dart';
-
 
 import '../components/custom_container_market.dart';
 import '../components/custom_icon_button.dart';
@@ -116,7 +112,7 @@ class _BackeryScreenState extends State<BackeryScreen> {
                   shrinkWrap: true,
                   itemCount: marketBakeryDataList.length,
                   gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
-                      childAspectRatio: 0.67, crossAxisCount: 2),
+                      childAspectRatio: 0.65, crossAxisCount: 2),
                   itemBuilder: (context, index) {
                     return Column(
                       children: [
@@ -142,29 +138,10 @@ class _BackeryScreenState extends State<BackeryScreen> {
                     );
                   }),
             ),
-
             SubmitButton(function: () {
               AppNavigator.appNavigator(
-                  context, SubmitScreen(totalPrice: widget.totalPrice));
-            }),
-
-            Container(
-                color: Colors.white,
-                child: TextButton(
-                    onPressed: () {
-                      Navigator.push(
-                          context,
-                          MaterialPageRoute(
-                              builder: (context) =>
-                                  CartScreen(totalPrice: widget.totalPrice)));
-                    },
-                    child: Customtext(
-                      text: 'Submit',
-                      color: Colors.black,
-                      fontSize: 18,
-                      fontWeight: FontWeight.bold,
-                    ))),
-
+                  context, CartScreen(totalPrice: widget.totalPrice));
+            })
           ],
         ),
       ),
