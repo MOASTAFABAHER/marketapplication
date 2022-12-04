@@ -17,11 +17,12 @@ class CustomIconButton extends StatelessWidget {
     return Column(
       children: [
         GestureDetector(
-          onTap:onTap,
+          onTap: onTap,
           child: Material(
             elevation: 2,
             borderRadius: BorderRadius.circular(10),
             child: Container(
+              padding: EdgeInsets.all(8),
               width: 50,
               height: 50,
               decoration: BoxDecoration(

@@ -17,8 +17,7 @@ List<MarketData> marketDataHomeList = [
       name: 'lemon',
       price: 15,
       country: 'Egypt',
-      image:
-          'https://images.pexels.com/photos/1002543/pexels-photo-1002543.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1'),
+      image: 'https://saverafresh.com/wp-content/uploads/2021/08/lemon.jpg'),
   MarketData(
       name: 'Bakery',
       price: 7,
@@ -118,7 +117,7 @@ List<MarketData> marketFruitsDataList = [
       price: 12,
       country: 'Egypt',
       image:
-          'https://images.pexels.com/photos/36736/fruits-strawberries-fruit-red.jpg?auto=compress&cs=tinysrgb&w=1600'),
+          'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRsp6PJ_lMLpWOKuMnWRwFXSiGArBmyu_ncaQ&usqp=CAU'),
   MarketData(
       name: 'x',
       price: 13,

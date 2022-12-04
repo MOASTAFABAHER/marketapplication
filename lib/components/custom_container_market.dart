@@ -21,69 +21,73 @@ class _ContainerMarketState extends State<ContainerMarket> {
     return Column(
       children: [
         Material(
-          elevation: 2,
+          elevation: 4,
+          color: Colors.grey,
           borderRadius: BorderRadius.circular(10),
           child: Container(
-            width: 120,
+            width: 150,
             decoration: BoxDecoration(
               color: Colors.white,
               borderRadius: BorderRadius.circular(10),
             ),
-            child: Column(
-              crossAxisAlignment: CrossAxisAlignment.start,
-              children: [
-                Align(
-                  alignment: Alignment.topRight,
-                  child: IconButton(
-                    onPressed: () {},
-                    icon: Icon(Icons.favorite),
-                    color: Colors.red,
-                    iconSize: 18,
+            child: Padding(
+              padding: const EdgeInsets.all(4),
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  Align(
+                    alignment: Alignment.topRight,
+                    child: IconButton(
+                      onPressed: () {},
+                      icon: Icon(Icons.favorite),
+                      color: Colors.red,
+                      iconSize: 18,
+                    ),
                   ),
-                ),
-                Image(
-                  image: NetworkImage(widget.marketData.image),
-                  fit: BoxFit.fill,
-                ),
-                Customtext(
-                  maxLine: 1,
-                  text: widget.marketData.name,
-                  fontSize: 20,
-                  fontWeight: FontWeight.bold,
-                  color: Colors.black,
-                ),
-                Customtext(
-                  text: widget.marketData.country,
-                  fontSize: 14,
-                  color: Colors.grey,
-                ),
-                Customtext(
-                  text: '${widget.marketData.price}',
-                  fontSize: 16,
-                  color: Colors.green,
-                ),
-                Align(
-                  alignment: Alignment.bottomRight,
-                  child: Container(
-                      width: 30,
-                      height: 30,
-                      decoration: const BoxDecoration(
-                        color: Colors.green,
-                        borderRadius: BorderRadius.only(
-                            topLeft: Radius.circular(8),
-                            topRight: Radius.circular(3),
-                            bottomLeft: Radius.circular(8),
-                            bottomRight: Radius.circular(3)),
-                      ),
-                      child: IconButton(
-                          onPressed: widget.function,
-                          icon: const Icon(
-                            Icons.add,
-                            size: 18,
-                            color: Colors.white,
-                          ))),
-                )
-              ],
+                  Image(
+                    image: NetworkImage(widget.marketData.image),
+                    fit: BoxFit.fill,
+                  ),
+                  Customtext(
+                    maxLine: 1,
+                    text: widget.marketData.name,
+                    fontSize: 20,
+                    fontWeight: FontWeight.bold,
+                    color: Colors.black,
+                  ),
+                  Customtext(
+                    text: widget.marketData.country,
+                    fontSize: 14,
+                    color: Colors.grey,
+                  ),
+                  Customtext(
+                    text: '${widget.marketData.price}',
+                    fontSize: 16,
+                    color: Colors.green,
+                  ),
+                  Align(
+                    alignment: Alignment.bottomRight,
+                    child: Container(
+                        width: 30,
+                        height: 30,
+                        decoration: const BoxDecoration(
+                          color: Colors.green,
+                          borderRadius: BorderRadius.only(
+                              topLeft: Radius.circular(8),
+                              topRight: Radius.circular(3),
+                              bottomLeft: Radius.circular(8),
+                              bottomRight: Radius.circular(3)),
+                        ),
+                        child: IconButton(
+                            onPressed: widget.function,
+                            icon: const Icon(
+                              Icons.add,
+                              size: 18,
+                              color: Colors.white,
+                            ))),
+                  )
+                ],
+              ),
             ),
           ),
         ),

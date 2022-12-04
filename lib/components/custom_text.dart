@@ -11,17 +11,23 @@ class Customtext extends StatelessWidget {
   Color? color;
   int? maxLine;
 
-  Customtext({required this.text, this.fontSize, this.color, this.fontWeight,this.maxLine});
+  Customtext(
+      {required this.text,
+      this.fontSize,
+      this.color,
+      this.fontWeight,
+      this.maxLine});
 
   @override
   Widget build(BuildContext context) {
     return Text(
-      this.text,maxLines:this.maxLine,
+      this.text,
+      maxLines: this.maxLine,
       style: TextStyle(
+        fontFamily: 'Barlow Condensed',
         fontSize: this.fontSize,
         fontWeight: this.fontWeight,
         color: color,
-        
       ),
     );
   }

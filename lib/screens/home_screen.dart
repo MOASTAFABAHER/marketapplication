@@ -6,9 +6,12 @@ import 'package:marketapplication/classes/market_data.dart';
 import 'package:marketapplication/components/custom_container_market.dart';
 import 'package:marketapplication/components/custom_icon_button.dart';
 import 'package:marketapplication/components/custom_textform.dart';
+import 'package:marketapplication/components/submit_button.dart';
 import 'package:marketapplication/screens/bakery_screen.dart';
 import 'package:marketapplication/screens/fruits_screen.dart';
+import 'package:marketapplication/screens/submit_screen.dart';
 import 'package:marketapplication/screens/vegitables_screen.dart';
+import 'package:marketapplication/utils/app_navigator.dart';
 
 import '../components/custom_text.dart';
 
@@ -33,13 +36,13 @@ class _HomeScreenState extends State<HomeScreen> {
           onPressed: () {},
           icon: const Icon(
             Icons.menu,
-            color: Colors.black,
+            color: Colors.green,
           ),
         ),
         centerTitle: true,
         title: const Text(
           'EDEkA',
-          style: TextStyle(color: Colors.blue, fontWeight: FontWeight.bold),
+          style: TextStyle(color: Colors.green, fontWeight: FontWeight.bold),
         ),
         actions: [
           Padding(
@@ -54,7 +57,7 @@ class _HomeScreenState extends State<HomeScreen> {
                     onPressed: () {},
                     icon: const Icon(
                       Icons.arrow_forward_sharp,
-                      color: Colors.blue,
+                      color: Colors.green,
                     ),
                   ),
                 ),
@@ -101,7 +104,7 @@ class _HomeScreenState extends State<HomeScreen> {
               height: 10,
             ),
             SizedBox(
-              height: 100,
+              height: 80,
               child: SingleChildScrollView(
                 scrollDirection: Axis.horizontal,
                 child: Row(
@@ -114,13 +117,8 @@ class _HomeScreenState extends State<HomeScreen> {
                     CustomIconButton(
                       iconsData: iconsDataList[0],
                       onTap: () {
-                        print('backery');
-                        Navigator.push(
-                            context,
-                            MaterialPageRoute(
-                                builder: (context) => BackeryScreen(
-                                      totalPrice: widget.totalPrice,
-                                    )));
+                        AppNavigator.appNavigator(context,
+                            BackeryScreen(totalPrice: widget.totalPrice));
                       },
                     ),
                     const SizedBox(
@@ -129,27 +127,15 @@ class _HomeScreenState extends State<HomeScreen> {
                     CustomIconButton(
                       iconsData: iconsDataList[1],
                       onTap: () {
-                        print('Fruits');
-                        Navigator.push(
-                            context,
-                            MaterialPageRoute(
-                                builder: (context) => FruitsScreen(
-                                      totalPrice: widget.totalPrice,
-                                    )));
+                        AppNavigator.appNavigator(context,
+                            FruitsScreen(totalPrice: widget.totalPrice));
                       },
                     ),
                     CustomIconButton(
                       iconsData: iconsDataList[2],
                       onTap: () {
-                        print('backery');
-                        Navigator.push(
-                          context,
-                          MaterialPageRoute(
-                            builder: (context) => VegetablesScreen(
-                              totalPrice: widget.totalPrice,
-                            ),
-                          ),
-                        );
+                        AppNavigator.appNavigator(context,
+                            VegetablesScreen(totalPrice: widget.totalPrice));
                       },
                     ),
                     const SizedBox(
@@ -209,7 +195,7 @@ class _HomeScreenState extends State<HomeScreen> {
                   shrinkWrap: true,
                   itemCount: marketDataHomeList.length,
                   gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
-                      childAspectRatio: 0.7, crossAxisCount: 2),
+                      childAspectRatio: 0.65, crossAxisCount: 2),
                   itemBuilder: (context, index) {
                     return Column(
                       children: [
@@ -227,13 +213,17 @@ class _HomeScreenState extends State<HomeScreen> {
                         Customtext(
                           text:
                               'the numbers of items ${marketDataHomeList[index].counter}',
-                          fontSize: 10,
+                          fontSize: 14,
                           color: Colors.grey,
                         )
                       ],
                     );
                   }),
-            )
+            ),
+            SubmitButton(function: () {
+              AppNavigator.appNavigator(
+                  context, SubmitScreen(totalPrice: widget.totalPrice));
+            })
           ],
         ),
       ),

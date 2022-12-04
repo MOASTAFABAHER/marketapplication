@@ -4,9 +4,11 @@ import 'package:flutter/src/widgets/framework.dart';
 import 'package:marketapplication/classes/icons_data.dart';
 import 'package:marketapplication/classes/market_data.dart';
 import 'package:marketapplication/components/custom_text.dart';
+import 'package:marketapplication/components/submit_button.dart';
 import 'package:marketapplication/screens/fruits_screen.dart';
 import 'package:marketapplication/screens/home_screen.dart';
 import 'package:marketapplication/screens/submit_screen.dart';
+import 'package:marketapplication/utils/app_navigator.dart';
 
 import '../components/custom_container_market.dart';
 import '../components/custom_icon_button.dart';
@@ -29,17 +31,19 @@ class _FruitsScreen extends State<FruitsScreen> {
         elevation: 0,
         leading: IconButton(
           onPressed: () {
-            Navigator.pop(context, true);
+            AppNavigator.appNavigator(
+                context, HomeScreen(totalPrice: widget.totalPrice),
+                isFinished: true);
           },
           icon: const Icon(
             Icons.arrow_back,
-            color: Colors.black,
+            color: Colors.green,
           ),
         ),
         centerTitle: true,
         title: const Text(
           'EDEkA',
-          style: TextStyle(color: Colors.blue, fontWeight: FontWeight.bold),
+          style: TextStyle(color: Colors.green, fontWeight: FontWeight.bold),
         ),
         actions: [
           Padding(
@@ -54,7 +58,7 @@ class _FruitsScreen extends State<FruitsScreen> {
                     onPressed: () {},
                     icon: const Icon(
                       Icons.arrow_forward_sharp,
-                      color: Colors.blue,
+                      color: Colors.green,
                     ),
                   ),
                 ),
@@ -100,13 +104,12 @@ class _FruitsScreen extends State<FruitsScreen> {
             const SizedBox(
               height: 10,
             ),
-           
             Expanded(
               child: GridView.builder(
                   shrinkWrap: true,
                   itemCount: marketFruitsDataList.length,
                   gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
-                      childAspectRatio: 0.7, crossAxisCount: 2),
+                      childAspectRatio: 0.64, crossAxisCount: 2),
                   itemBuilder: (context, index) {
                     return Column(
                       children: [
@@ -125,29 +128,17 @@ class _FruitsScreen extends State<FruitsScreen> {
                         Customtext(
                           text:
                               'the numbers of items ${marketFruitsDataList[index].counter}',
-                          fontSize: 10,
+                          fontSize: 14,
                           color: Colors.grey,
                         ),
                       ],
                     );
                   }),
             ),
-            Container(
-                color: Colors.white,
-                child: TextButton(
-                    onPressed: () {
-                      Navigator.push(
-                          context,
-                          MaterialPageRoute(
-                              builder: (context) =>
-                                  SubmitScreen(totalPrice: widget.totalPrice)));
-                    },
-                    child: Customtext(
-                      text: 'Submit',
-                      color: Colors.black,
-                      fontSize: 18,
-                      fontWeight: FontWeight.bold,
-                    ))),
+            SubmitButton(function: () {
+              AppNavigator.appNavigator(
+                  context, SubmitScreen(totalPrice: widget.totalPrice));
+            })
           ],
         ),
       ),
